@@ -1,10 +1,17 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YeMovies.Api", "YeMovies.Api\YeMovies.Api.csproj", "{3D06FE0D-9850-4B44-9F01-560E7266B0DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YeMovies.Application", "YeMovies.Application\YeMovies.Application.csproj", "{46F231A0-6848-4709-92ED-FFCFEE15A7BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YeMovies.Contracts", "YeMovies.Contracts\YeMovies.Contracts.csproj", "{5AB2FFB1-445D-49CD-8466-5AD7DCA12C55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{52630772-4530-47F7-94EB-301309B72B25}"
+	ProjectSection(SolutionItems) = preProject
+		Helpers\movies.json = Helpers\movies.json
+		Helpers\Course.postman_collection.json = Helpers\Course.postman_collection.json
+		Helpers\YeMovies.postman_collection.json = Helpers\YeMovies.postman_collection.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
