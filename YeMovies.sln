@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{5263
 		Helpers\YeMovies.postman_collection.json = Helpers\YeMovies.postman_collection.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Api", "Identity.Api\Identity.Api.csproj", "{AA787A69-C2D7-4995-A195-6B0D3061DD07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{5AB2FFB1-445D-49CD-8466-5AD7DCA12C55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AB2FFB1-445D-49CD-8466-5AD7DCA12C55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AB2FFB1-445D-49CD-8466-5AD7DCA12C55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA787A69-C2D7-4995-A195-6B0D3061DD07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA787A69-C2D7-4995-A195-6B0D3061DD07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA787A69-C2D7-4995-A195-6B0D3061DD07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA787A69-C2D7-4995-A195-6B0D3061DD07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
