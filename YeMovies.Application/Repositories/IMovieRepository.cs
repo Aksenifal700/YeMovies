@@ -5,9 +5,9 @@ namespace YeMovies.Application.Repositories;
 public interface IMovieRepository
 {
     Task<bool> CreateAsync(Movie movie, CancellationToken token = default);
-    Task<Movie?> GetByIdAsync(Guid id, CancellationToken token = default);
-    Task<Movie?> GetBySlugAsync(string slug, CancellationToken token = default);
-    Task<IEnumerable<Movie>> GetAllAsync(CancellationToken token = default);
+    Task<Movie?> GetByIdAsync(Guid id, CancellationToken token = default, Guid? userid = default);
+    Task<Movie?> GetBySlugAsync(string slug,  Guid? userid = default, CancellationToken token = default);
+    Task<IEnumerable<Movie>> GetAllAsync(CancellationToken token = default, Guid? userid = default);
     Task<bool> UpdateAsync(Movie movie, CancellationToken token = default);
     Task<bool> DeleteAsync(Guid id, CancellationToken token = default);
     Task<bool> ExistsByIdAsync(Guid id, CancellationToken token = default);
