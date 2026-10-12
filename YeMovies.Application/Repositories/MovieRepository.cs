@@ -114,7 +114,7 @@ public class MovieRepository : IMovieRepository
                                                                        left join ratings r on m.Id = r.movieid
                                                                        left join ratings myr on m.id = myr.movieid
                                                                        and myr.userid = @userid
-                                                                       group by id
+                                                                       group by m.id, myr.rating
                                                                        """, new { userid }, cancellationToken: token));
 
         return result.Select(x => new Movie
@@ -122,7 +122,7 @@ public class MovieRepository : IMovieRepository
             Id = x.id,
             Title = x.title,
             YearOfRelease = x.yearofrelease,
-            Rating = (float?)x.raiting,
+            Rating = (float?)x.rating,
             UserRating = (int?)x.userrating,
             Genres = Enumerable.ToList(x.genres.Split(','))
         });
