@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using YeMovies.Application.Services;
 using YeMovies.Contracts.Requests;
+using YeMovies.Contracts.Responses;
 using YeMoviesApi.Auth;
 using YeMoviesApi.Mapping;
 
@@ -28,7 +29,8 @@ public class MoviesController : Controller
     }
     
     [HttpGet(ApiEndpoints.Movies.Get)]
-    public async Task<IActionResult> Get([FromRoute] string idOrSlug, CancellationToken token)
+    public async Task<IActionResult> Get([FromRoute] string idOrSlug,
+        [FromServices] LinkGenerator linkGenerator, CancellationToken token)
     {
         var userId = HttpContext.GetUserId();
         var movie = Guid.TryParse(idOrSlug, out var id) 
@@ -44,12 +46,15 @@ public class MoviesController : Controller
     }
     
     [HttpGet(ApiEndpoints.Movies.GetAll)]
-    public async Task<IActionResult> GetAll(CancellationToken token)
+    public async Task<IActionResult> GetAll([FromQuery] GetAllMoviesRequest request, CancellationToken token)
     {
         var userId = HttpContext.GetUserId();
-        var movies = await _movieService.GetAllAsync( token, userId);
+        var options = request.MapToOptions()
+            .WithUser(userId);
+        var movies = await _movieService.GetAllAsync(options, token);
+        var movieCount = await _movieService.GetCountAsync(options.Title, options.YearOfRelease, token);
 
-        var moviesResponse = movies.MapToResponse();
+        var moviesResponse = movies.MapToResponse(request.Page, request.PageSize, movieCount);
         return Ok(moviesResponse);
     }
     
